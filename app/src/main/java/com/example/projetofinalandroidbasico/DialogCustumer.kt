@@ -2,11 +2,11 @@ package com.example.projetofinalandroidbasico
 
 import android.app.Dialog
 import android.os.Bundle
-import android.view.KeyEvent
 import android.widget.EditText
-import android.widget.TextView
+import android.widget.Spinner
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
+import com.example.projetofinalandroidbasico.activitys.AtividadesActivity
 
 class DialogCustumer : DialogFragment() {
 
@@ -16,8 +16,9 @@ class DialogCustumer : DialogFragment() {
            // .setTitle("Atividade")
             .setView(view)
             .setPositiveButton(android.R.string.ok) { _, _ ->
-              val  atividades = view.findViewById<EditText>(R.id.layout_dialog_editText).text.toString()
-                (activity as AtividadesActivity).uptEditText(atividades)
+                val  dia = view.findViewById<Spinner>(R.id.spndia).toString()
+                val  atividades = view.findViewById<EditText>(R.id.layout_dialog_editText).text.toString()
+                (activity as AtividadesActivity).criarAtividade(atividades,dia)
                 dismiss()
             }
             .setNegativeButton(android.R.string.cancel) { _, _ ->

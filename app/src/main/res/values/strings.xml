@@ -16,5 +16,9 @@
     <string name="ola">Olá</string>
     <string name="atividdade">Atividade</string>
     <string name="descAtividade">Digite aqui sua Atividade</string>
+    <string name="distracao">Distração</string>
+    <string name="maps">Mapas</string>
+    <string name="title_activity_distracao">DistracaoActivity</string>
+    <string name="dia">Dia:</string>
 
 </resources>

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AtividadesActivity">
+    tools:context=".activitys.AtividadesActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/activity_atividades_recyclerView"

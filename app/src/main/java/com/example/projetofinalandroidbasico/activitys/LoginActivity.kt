@@ -1,11 +1,11 @@
-package com.example.projetofinalandroidbasico
+package com.example.projetofinalandroidbasico.activitys
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
+import com.example.projetofinalandroidbasico.R
 
 class LoginActivity : AppCompatActivity() {
 
@@ -18,7 +18,8 @@ class LoginActivity : AppCompatActivity() {
         val textView = findViewById<EditText>(R.id.activity_login_editText2)
 
         buttonEntrar.setOnClickListener {
-            val intent = Intent(this,AtividadesActivity::class.java)
+            val intent = Intent(this,
+                AtividadesActivity::class.java)
             intent.putExtra("login",textView.text.toString())
             startActivity(intent)
         }

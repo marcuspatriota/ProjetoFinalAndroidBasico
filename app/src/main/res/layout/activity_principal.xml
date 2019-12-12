@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorBranco"
-    tools:context=".PrincipalActivity">
+    tools:context=".activitys.PrincipalActivity">
 
     <ImageView
         android:id="@+id/activity_principal_imageView"
@@ -20,25 +20,25 @@
         android:id="@+id/activity_principal_button"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:textSize="25sp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/colorAzul"
         android:text="@string/login"
         android:textColor="@color/colorBranco"
-        android:backgroundTint="@color/colorAzul"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_principal_imageView" />
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/activity_principal_button2"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/activity_principal_button2"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/registro"
-        android:textSize="25sp"
-        android:textColor="@color/colorBranco"
+        android:layout_marginBottom="32dp"
         android:backgroundTint="@color/colorAzul"
+        android:text="@string/registro"
+        android:textColor="@color/colorBranco"
+        android:textSize="25sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_principal_button" />
+        app:layout_constraintStart_toEndOf="@+id/activity_principal_button" />
 </androidx.constraintlayout.widget.ConstraintLayout>
