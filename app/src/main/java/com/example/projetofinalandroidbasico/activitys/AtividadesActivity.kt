@@ -10,10 +10,9 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.projetofinalandroidbasico.*
+import com.example.projetofinalandroidbasico.adapter.AtividadesAdapter
 import com.example.projetofinalandroidbasico.beans.Atividades
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-
-import java.net.URL
 
 class AtividadesActivity : AppCompatActivity() {
 
@@ -31,7 +30,9 @@ class AtividadesActivity : AppCompatActivity() {
         recyclerView = findViewById<RecyclerView>(R.id.activity_atividades_recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
         adapter =
-            AtividadesAdapter(mutableListOf<Atividades>())
+            AtividadesAdapter(
+                mutableListOf<Atividades>()
+            )
         recyclerView.adapter=adapter
 
         val buttonFloat = findViewById<FloatingActionButton>(R.id.activity_atividades_floatingActionButton)
@@ -60,7 +61,6 @@ class AtividadesActivity : AppCompatActivity() {
             else -> return super.onOptionsItemSelected(item)
 
         }
-
     }
 
     fun uptEditText(descAtividade:String){
@@ -68,6 +68,7 @@ class AtividadesActivity : AppCompatActivity() {
             Atividades(descAtividade, "segunda")
         adapter.AddAtividade(atv)
     }
+
     fun criarAtividade(descAtividade:String, dia : String){
         val db = atividadeDataBase.writableDatabase
         val values = ContentValues().apply {
@@ -75,6 +76,7 @@ class AtividadesActivity : AppCompatActivity() {
             put(AtividadeDataBase.ATV_DESC, descAtividade)
         }
         db?.insert(AtividadeDataBase.TABLE_ATIVIDADES, null, values)
+
         val atv =
             Atividades(descAtividade, dia)
         adapter.AddAtividade(atv)

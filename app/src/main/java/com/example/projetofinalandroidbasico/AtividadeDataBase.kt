@@ -1,8 +1,11 @@
 package com.example.projetofinalandroidbasico
 
+import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.provider.ContactsContract
 import android.util.Log
 
 class AtividadeDataBase (context: Context):SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -58,6 +61,26 @@ class AtividadeDataBase (context: Context):SQLiteOpenHelper(context, DATABASE_NA
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_ATIVIDADES")
         db?.execSQL("DROP TABLE IF EXISTS $TABLE_USER")
         onCreate(db)
+    }
+
+    fun getAtividades(idUser: Int):Cursor{
+        return readableDatabase.query(TABLE_ATIVIDADES, arrayOf(ATV_ID, ATV_DESC, ATV_DIA, ATV_ID_USER), "$ATV_ID_USER = '$idUser'", null, null, null, null)
+    }
+
+    fun getIdUsuario (login:String, senha:String):Int{
+        return readableDatabase.query(TABLE_USER, arrayOf(USER_ID, USER_LOGIN, USER_SENHA), "$USER_LOGIN = '$login' and $USER_SENHA= '$senha'", null, null, null, null).count
+
+    }
+
+    fun criarUser (nome:String, login: String, senha: String, cpf:String, email: String ){
+        val values = ContentValues()
+        values.put(USER_EMAIL, email)
+        values.put(USER_NOME, nome)
+        values.put(USER_CPF, cpf)
+        values.put(USER_LOGIN, login)
+        values.put(USER_SENHA, senha)
+
+        readableDatabase.insert(TABLE_USER, null, values )
     }
 
 

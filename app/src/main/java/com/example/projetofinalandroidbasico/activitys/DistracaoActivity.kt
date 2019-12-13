@@ -5,7 +5,6 @@ import android.os.Bundle
 import com.example.projetofinalandroidbasico.NewsListener
 import com.example.projetofinalandroidbasico.NewsListenerIF
 import com.example.projetofinalandroidbasico.R
-import kotlinx.android.synthetic.main.activity_distracao.*
 import java.net.URL
 
 class DistracaoActivity : AppCompatActivity() {
@@ -18,7 +17,7 @@ class DistracaoActivity : AppCompatActivity() {
         newsListener = NewsListener(this, object : NewsListenerIF {
             override fun onNewsCompleted(s: String) {
 
-                textView.text = s
+                //textView.text = s
             }
         })
     }

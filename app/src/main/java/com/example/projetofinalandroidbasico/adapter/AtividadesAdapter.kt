@@ -1,17 +1,23 @@
-package com.example.projetofinalandroidbasico
+package com.example.projetofinalandroidbasico.adapter
 
-import android.content.ContentValues
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.projetofinalandroidbasico.viwholder.AtividadesViewHolder
+import com.example.projetofinalandroidbasico.R
 import com.example.projetofinalandroidbasico.beans.Atividades
-import kotlin.concurrent.timer
 
 
 class AtividadesAdapter (private val atividades:MutableList<Atividades> ): RecyclerView.Adapter<AtividadesViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AtividadesViewHolder {
-        return AtividadesViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.layout_atividades,parent,false))
+        return AtividadesViewHolder(
+            LayoutInflater.from(parent.context).inflate(
+                R.layout.layout_atividades,
+                parent,
+                false
+            )
+        )
     }
     override fun getItemCount(): Int {
         return atividades.size
@@ -19,8 +25,7 @@ class AtividadesAdapter (private val atividades:MutableList<Atividades> ): Recyc
 
     override fun onBindViewHolder(holder: AtividadesViewHolder, position: Int) {
         holder.textView.text = atividades[position].descAtividade
-        val diaDefault:String = "Domingo"
-        holder.dia.selectedItem.toString()=atividades[position].dia?: diaDefault
+        holder.dia?.setSelection(position)
         holder.buttonDelete.setOnClickListener{
             atividades.removeAt(position)
             notifyItemRemoved(position)
@@ -30,6 +35,7 @@ class AtividadesAdapter (private val atividades:MutableList<Atividades> ): Recyc
 
         }
     }
+
 
     fun AddAtividade (atv: Atividades){
         /**
